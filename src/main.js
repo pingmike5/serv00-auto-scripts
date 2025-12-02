@@ -65,7 +65,8 @@ async function sendTelegramMessage(token, chatId, message) {
             await page.type('#id_username', username);
             await page.type('#id_password', password);
 
-            const loginButton = await page.$('#submit');
+            // 使用更新后的按钮选择器
+            const loginButton = await page.$('.login-form__button .button--primary');
             if (loginButton) {
                 await loginButton.click();
             } else {
